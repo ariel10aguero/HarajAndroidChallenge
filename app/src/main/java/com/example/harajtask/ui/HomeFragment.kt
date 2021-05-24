@@ -5,18 +5,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.harajtask.R
 import com.example.harajtask.databinding.FragmentHomeBinding
+import com.example.harajtask.domain.RepoImplement
+import com.example.harajtask.viewmodel.MainViewModel
+import com.example.harajtask.viewmodel.ViewModelFactory
 
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    lateinit var recyclerAdapter: RecyclerAdapter
+    private val viewModel by activityViewModels<MainViewModel>(){
+        ViewModelFactory(RepoImplement(requireContext()))
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        recyclerAdapter = RecyclerAdapter()
     }
 
     override fun onCreateView(
@@ -32,9 +42,21 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.recycler.adapter = RecyclerAdapter()
-        binding.recycler.layoutManager = LinearLayoutManager(requireContext())
+        setUpRecycer()
+        fetchList()
 
     }
+
+    private fun setUpRecycer() {
+        binding.recycler.adapter = recyclerAdapter
+        binding.recycler.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    private fun fetchList(){
+        val list = viewModel.getListFromJson()
+        recyclerAdapter.setlist(list)
+
+    }
+
+
 }

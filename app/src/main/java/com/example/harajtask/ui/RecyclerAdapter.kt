@@ -3,9 +3,16 @@ package com.example.harajtask.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.harajtask.data.Post
 import com.example.harajtask.databinding.ItemRowBinding
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    var postList = arrayListOf<Post>()
+
+    fun setlist(list: ArrayList<Post>){
+        postList = list
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
