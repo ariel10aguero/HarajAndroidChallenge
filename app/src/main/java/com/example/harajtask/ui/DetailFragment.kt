@@ -38,6 +38,8 @@ class DetailFragment : Fragment() {
 
          Glide.with(requireContext()).load(args.postArg.thumbURL).optionalCenterCrop().into(binding.photoDetail)
 
+        binding.titleDetailTxt2.text = args.postArg.title
+
         binding.backArrow.setOnClickListener {
             findNavController().navigate(R.id.action_detailFragment_to_homeFragment)
         }
