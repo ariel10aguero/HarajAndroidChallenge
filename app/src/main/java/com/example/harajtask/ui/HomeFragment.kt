@@ -88,9 +88,6 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
             }
         })
 
-
-
-
     }
 
 }

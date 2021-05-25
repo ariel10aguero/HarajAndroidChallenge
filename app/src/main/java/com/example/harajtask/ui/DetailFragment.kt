@@ -40,17 +40,17 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val utils = Utils()
-
          Glide.with(requireContext()).load(args.postArg.thumbURL).optionalCenterCrop().into(binding.photoDetail)
 
-        binding.titleDetailTxt2.text = args.postArg.title
-        binding.usernameDetailTxt.text = args.postArg.username
-        binding.cityDetailTxt.text = args.postArg.city
-        binding.bodyDetail.text = args.postArg.body
-        binding.dateDetailTxt.text = utils.getCompleteDate(args.postArg.date)
-
-        binding.backArrow.setOnClickListener {
-            findNavController().navigate(R.id.action_detailFragment_to_homeFragment)
+        binding.apply {
+            titleDetailTxt2.text = args.postArg.title
+            usernameDetailTxt.text = args.postArg.username
+            cityDetailTxt.text = args.postArg.city
+            bodyDetail.text = args.postArg.body
+            dateDetailTxt.text = utils.getCompleteDate(args.postArg.date)
+            backArrow.setOnClickListener {
+                findNavController().navigate(R.id.action_detailFragment_to_homeFragment)
+            }
         }
     }
 

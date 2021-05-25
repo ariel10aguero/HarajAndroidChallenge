@@ -1,6 +1,7 @@
 package com.example.harajtask.domain
 
 import android.content.Context
+import android.util.Log
 import com.example.harajtask.data.Post
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -20,6 +21,7 @@ class RepoImplement(private val context: Context) : Repository {
             json = inputStream.bufferedReader().use { it.readText() }
         }
         catch (e: IOException){
+            Log.e("error", "$e")
         }
 
         val gson = Gson()
@@ -27,7 +29,6 @@ class RepoImplement(private val context: Context) : Repository {
         val objectsList = gson.fromJson<ArrayList<Post>>(json, myType)
 
         return objectsList
-
 
     }
 }
