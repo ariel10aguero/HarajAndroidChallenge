@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.harajtask.R
@@ -57,8 +58,11 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     }
 
     private fun fetchList(){
-        val list = viewModel.getListFromJson()
-        recyclerAdapter.setlist(list)
+        viewModel.getListFromJson()
+        viewModel.liveDataList.observe(viewLifecycleOwner, Observer {
+            recyclerAdapter.setlist(it)
+        })
+
     }
 
     override fun onClickRow(post: Post) {
