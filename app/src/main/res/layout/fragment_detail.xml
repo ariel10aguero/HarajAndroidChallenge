@@ -109,18 +109,22 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="8dp"
+        android:padding="4dp"
+        android:paddingStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameDetailTxt">
+        app:layout_constraintTop_toBottomOf="@+id/usernameDetailTxt"
+        tools:ignore="RtlSymmetry">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="4dp">
+            android:paddingStart="4dp"
+            android:paddingBottom="6dp"
+            tools:ignore="RtlSymmetry">
 
         <TextView
             android:id="@+id/bodyDetail"
