@@ -46,7 +46,6 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 commentsNum.text = post.commentCount.toString()
                 usernameTxt.text = post.username
             }
-
         }
 
     }

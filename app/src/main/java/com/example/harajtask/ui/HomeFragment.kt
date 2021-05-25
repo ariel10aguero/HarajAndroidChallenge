@@ -55,7 +55,6 @@ class HomeFragment : Fragment() {
     private fun fetchList(){
         val list = viewModel.getListFromJson()
         recyclerAdapter.setlist(list)
-
     }
 
 
