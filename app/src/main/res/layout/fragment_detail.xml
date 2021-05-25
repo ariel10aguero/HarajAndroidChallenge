@@ -8,6 +8,38 @@
 
 
     <TextView
+        android:id="@+id/cityDetailTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:fontFamily="@font/robotoregular"
+        android:text="الرياض"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/usernameDetailTxt"
+        app:layout_constraintEnd_toStartOf="@+id/locationDetailIcon" />
+
+    <ImageView
+        android:id="@+id/locationDetailIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="232dp"
+        app:layout_constraintEnd_toStartOf="@+id/personDetailIcon"
+        app:layout_constraintTop_toBottomOf="@+id/dateDetailTxt"
+        app:srcCompat="@drawable/ic_baseline_location" />
+
+    <TextView
+        android:id="@+id/dateDetailTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/robotoregular"
+        android:text="Since 3 hours ago"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleDetailTxt2" />
+
+    <TextView
         android:id="@+id/titleDetailTxt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,21 +59,22 @@
         android:id="@+id/usernameDetailTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/robotoregular"
         android:text="الجهني الرفاعي"
-        android:textSize="12sp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/personDetailIcon"
         app:layout_constraintEnd_toStartOf="@+id/personDetailIcon"
-        app:layout_constraintTop_toBottomOf="@+id/titleDetailTxt2" />
+        app:layout_constraintTop_toTopOf="@+id/personDetailIcon" />
 
     <ImageView
         android:id="@+id/personDetailIcon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleDetailTxt2"
+        app:layout_constraintTop_toBottomOf="@+id/dateDetailTxt"
         app:srcCompat="@drawable/ic_baseline_person" />
 
     <com.github.chrisbanes.photoview.PhotoView
@@ -72,5 +105,36 @@
         android:src="@drawable/ic_baseline_share"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameDetailTxt">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+        <TextView
+            android:id="@+id/bodyDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/robotoregular"
+            android:text="TextView"
+            android:textDirection="anyRtl" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
