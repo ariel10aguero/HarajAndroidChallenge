@@ -22,5 +22,8 @@
         <argument
             android:name="postArg"
             app:argType="com.example.harajtask.data.Post" />
+        <action
+            android:id="@+id/action_detailFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

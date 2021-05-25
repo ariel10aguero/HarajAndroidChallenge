@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.harajtask.R
@@ -36,6 +37,12 @@ class DetailFragment : Fragment() {
 
 
          Glide.with(requireContext()).load(args.postArg.thumbURL).optionalCenterCrop().into(binding.photoDetail)
+
+        binding.backArrow.setOnClickListener {
+            findNavController().navigate(R.id.action_detailFragment_to_homeFragment)
+        }
     }
+
+
 }
 

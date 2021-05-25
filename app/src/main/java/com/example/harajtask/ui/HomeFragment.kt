@@ -62,6 +62,5 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     override fun onClickRow(post: Post) {
         val postDetail = HomeFragmentDirections.actionHomeFragmentToDetailFragment(post)
         findNavController().navigate(postDetail)
-
     }
 }
