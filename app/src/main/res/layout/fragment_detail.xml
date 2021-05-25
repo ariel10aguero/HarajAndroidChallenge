@@ -36,8 +36,8 @@
         android:fontFamily="@font/robotoregular"
         android:text="Since 3 hours ago"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintBottom_toBottomOf="@+id/calendarIcon"
+        app:layout_constraintEnd_toStartOf="@+id/calendarIcon"
         app:layout_constraintTop_toBottomOf="@+id/titleDetailTxt2" />
 
     <TextView
@@ -143,7 +143,7 @@
     </ScrollView>
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/calendarIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

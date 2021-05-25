@@ -23,8 +23,9 @@ class RecyclerAdapter(private val onClick: OnClickRowListener, private val utils
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            val rowInfalter = ItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MainViewHolder(rowInfalter)
+
+        val rowInfalter = ItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+          return MainViewHolder(rowInfalter)
 
     }
 

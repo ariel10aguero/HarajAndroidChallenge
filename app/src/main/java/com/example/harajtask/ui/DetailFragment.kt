@@ -44,9 +44,7 @@ class DetailFragment : Fragment() {
         binding.shareIcon.setOnClickListener {
             shareTitle()
         }
-
     }
-
 
     private fun shareTitle(){
 
@@ -63,7 +61,6 @@ class DetailFragment : Fragment() {
     private fun bindArgs(){
         val utils = Utils()
         Glide.with(requireContext()).load(args.postArg.thumbURL).optionalCenterCrop().into(binding.photoDetail)
-
         binding.apply {
             titleDetailTxt2.text = args.postArg.title
             usernameDetailTxt.text = args.postArg.username
