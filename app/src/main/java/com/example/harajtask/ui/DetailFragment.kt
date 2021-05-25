@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.example.harajtask.R
 import com.example.harajtask.databinding.FragmentDetailBinding
 import com.example.harajtask.databinding.FragmentHomeBinding
@@ -33,7 +34,8 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.detailTxt.text = args.postArg.username
+
+         Glide.with(requireContext()).load(args.postArg.thumbURL).optionalCenterCrop().into(binding.photoDetail)
     }
 }
 
