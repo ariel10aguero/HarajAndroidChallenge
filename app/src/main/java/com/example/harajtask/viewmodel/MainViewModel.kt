@@ -15,5 +15,10 @@ class MainViewModel(private val repo: Repository) : ViewModel() {
         liveDataList.value = repo.getListFromJson()
     }
 
+    fun searchItem(query: String){
+        val filterList = repo.getListFromJson().filter {it.title.contains(query) || it.body.contains(query)} as ArrayList<Post>
+        liveDataList.value = filterList
+    }
+
 
 }

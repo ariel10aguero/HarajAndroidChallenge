@@ -49,6 +49,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         super.onViewCreated(view, savedInstanceState)
         setUpRecycer()
         fetchList()
+        setupSearchView()
 
     }
 
@@ -69,4 +70,27 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         val postDetail = HomeFragmentDirections.actionHomeFragmentToDetailFragment(post)
         findNavController().navigate(postDetail)
     }
+
+    private fun setupSearchView(){
+        binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.searchItem(query!!)
+                recyclerAdapter.notifyDataSetChanged()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.searchItem(newText!!)
+                recyclerAdapter.notifyDataSetChanged()
+                return false
+
+            }
+        })
+
+
+
+
+    }
+
 }
