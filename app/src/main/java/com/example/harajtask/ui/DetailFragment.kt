@@ -46,16 +46,6 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun shareTitle(){
-
-        val sendIntent: Intent = Intent().apply {
-            action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT, args.postArg.title)
-            type = "text/plain"
-        }
-        val shareIntent = Intent.createChooser(sendIntent, null)
-        startActivity(shareIntent)
-    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun bindArgs(){
@@ -71,6 +61,17 @@ class DetailFragment : Fragment() {
                 findNavController().navigate(R.id.action_detailFragment_to_homeFragment)
             }
         }
+    }
+
+    private fun shareTitle(){
+
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, args.postArg.title)
+            type = "text/plain"
+        }
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 
 }

@@ -26,9 +26,9 @@ class RepoImplement(private val context: Context) : Repository {
 
         val gson = Gson()
         val myType = object : TypeToken<ArrayList<Post>>() {}.type
-        val objectsList = gson.fromJson<ArrayList<Post>>(json, myType)
+        val objectList = gson.fromJson<ArrayList<Post>>(json, myType)
 
-        return objectsList
+        return objectList
 
     }
 }

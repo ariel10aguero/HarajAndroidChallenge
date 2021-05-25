@@ -43,5 +43,4 @@ class MainActivity : AppCompatActivity() {
         Log.d("chau", "$logs")
         Log.d("uno", "${logs[2]}")
     }
-
 }

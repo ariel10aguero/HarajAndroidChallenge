@@ -15,8 +15,8 @@ class Utils() {
         val sdf = SimpleDateFormat("MM/dd/yyyy HH:mm:ss")
         val dateStr = sdf.format(Date(num * 1000))
 
-        val apiFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss")
-        val date = LocalDate.parse(dateStr, apiFormat)
+        val datePattern = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss")
+        val date = LocalDate.parse(dateStr, datePattern)
 
         return "${date.month}/${date.dayOfMonth}"
     }
@@ -28,8 +28,6 @@ class Utils() {
         val dateStr = sdf.format(Date(num * 1000))
         return dateStr
     }
-
-
 }
 
 

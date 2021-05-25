@@ -10,7 +10,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.harajtask.R
 import com.example.harajtask.Utils
 import com.example.harajtask.data.Post
 import com.example.harajtask.databinding.FragmentHomeBinding
@@ -38,7 +37,6 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
@@ -49,8 +47,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         super.onViewCreated(view, savedInstanceState)
         setUpRecycer()
         fetchList()
-        setupSearchView()
-
+        setUpSearchView()
     }
 
     private fun setUpRecycer() {
@@ -63,7 +60,6 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         viewModel.liveDataList.observe(viewLifecycleOwner, Observer {
             recyclerAdapter.setlist(it)
         })
-
     }
 
     override fun onClickRow(post: Post) {
@@ -71,7 +67,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         findNavController().navigate(postDetail)
     }
 
-    private fun setupSearchView(){
+    private fun setUpSearchView(){
         binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
 
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -84,10 +80,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
                 viewModel.searchItem(newText!!)
                 recyclerAdapter.notifyDataSetChanged()
                 return false
-
             }
         })
-
     }
-
 }
