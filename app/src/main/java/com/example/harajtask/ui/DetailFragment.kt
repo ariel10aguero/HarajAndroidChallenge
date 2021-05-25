@@ -1,5 +1,6 @@
 package com.example.harajtask.ui
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -39,8 +40,29 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        bindArgs()
+        binding.shareIcon.setOnClickListener {
+            shareTitle()
+        }
+
+    }
+
+
+    private fun shareTitle(){
+
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, args.postArg.title)
+            type = "text/plain"
+        }
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun bindArgs(){
         val utils = Utils()
-         Glide.with(requireContext()).load(args.postArg.thumbURL).optionalCenterCrop().into(binding.photoDetail)
+        Glide.with(requireContext()).load(args.postArg.thumbURL).optionalCenterCrop().into(binding.photoDetail)
 
         binding.apply {
             titleDetailTxt2.text = args.postArg.title
@@ -53,7 +75,6 @@ class DetailFragment : Fragment() {
             }
         }
     }
-
 
 }
 
