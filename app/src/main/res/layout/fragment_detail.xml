@@ -21,7 +21,7 @@
         android:id="@+id/locationDetailIcon"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="232dp"
         app:layout_constraintEnd_toStartOf="@+id/personDetailIcon"
         app:layout_constraintTop_toBottomOf="@+id/dateDetailTxt"
@@ -32,11 +32,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/robotoregular"
         android:text="Since 3 hours ago"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/titleDetailTxt2" />
 
     <TextView
@@ -140,5 +141,15 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/ic_baseline_calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleDetailTxt2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

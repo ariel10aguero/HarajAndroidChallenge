@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.harajtask.R
+import com.example.harajtask.Utils
 import com.example.harajtask.data.Post
 import com.example.harajtask.databinding.FragmentHomeBinding
 import com.example.harajtask.domain.RepoImplement
@@ -28,7 +29,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        recyclerAdapter = RecyclerAdapter(this)
+        recyclerAdapter = RecyclerAdapter(this, Utils())
     }
 
     override fun onCreateView(
