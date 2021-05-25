@@ -17,17 +17,17 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
-        <SearchView
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
-            app:defaultQueryHint="Search cocktail recipe"
             app:iconifiedByDefault="false"
+            android:clickable="true"
             app:queryBackground="@android:color/transparent"
-            app:queryHint="Search cocktail recipe" >
+            app:queryHint="Search" >
 
-        </SearchView>
+        </androidx.appcompat.widget.SearchView>
 
     </androidx.cardview.widget.CardView>
 
