@@ -39,7 +39,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         fun bind(post: Post){
             binding.apply {
-                Glide.with(itemView.context.applicationContext).load(post.thumbURL).into(imageView)
+                Glide.with(itemView.context.applicationContext).load(post.thumbURL).centerCrop().into(imageView)
                 titleTxt.text = post.title
                 cityTxt.text = post.city
                 dateTxt.text = post.date.toString()
