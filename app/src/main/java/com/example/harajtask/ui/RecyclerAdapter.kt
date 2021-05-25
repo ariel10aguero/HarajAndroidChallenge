@@ -8,13 +8,18 @@ import com.bumptech.glide.Glide
 import com.example.harajtask.data.Post
 import com.example.harajtask.databinding.ItemRowBinding
 
-class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerAdapter(private val onClick: OnClickRowListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var postList = arrayListOf<Post>()
 
     fun setlist(list: ArrayList<Post>){
         postList = list
     }
+
+    interface OnClickRowListener {
+        fun onClickRow(post: Post)
+    }
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -28,7 +33,11 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         when(holder){
             is MainViewHolder -> holder.bind(currentItem)
         }
-
+        holder.itemView.setOnClickListener {
+            if (postList.isNotEmpty()) {
+                onClick.onClickRow(postList[position])
+            }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -47,6 +56,5 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 usernameTxt.text = post.username
             }
         }
-
     }
 }

@@ -18,5 +18,9 @@
         android:id="@+id/detailFragment"
         android:name="com.example.harajtask.ui.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="postArg"
+            app:argType="com.example.harajtask.data.Post" />
+    </fragment>
 </navigation>

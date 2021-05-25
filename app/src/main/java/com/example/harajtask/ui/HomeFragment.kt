@@ -6,15 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.harajtask.R
+import com.example.harajtask.data.Post
 import com.example.harajtask.databinding.FragmentHomeBinding
 import com.example.harajtask.domain.RepoImplement
 import com.example.harajtask.viewmodel.MainViewModel
 import com.example.harajtask.viewmodel.ViewModelFactory
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -26,7 +28,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        recyclerAdapter = RecyclerAdapter()
+        recyclerAdapter = RecyclerAdapter(this)
     }
 
     override fun onCreateView(
@@ -57,5 +59,9 @@ class HomeFragment : Fragment() {
         recyclerAdapter.setlist(list)
     }
 
+    override fun onClickRow(post: Post) {
+        val postDetail = HomeFragmentDirections.actionHomeFragmentToDetailFragment(post)
+        findNavController().navigate(postDetail)
 
+    }
 }
