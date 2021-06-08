@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         try {
             val inputStream: InputStream = assets.open("data.json")
             json = inputStream.bufferedReader().use { it.readText() }
-            Log.d("hola", "$json")
         }
         catch (e: IOException){
             Log.d("Error", "Can't open Json File")
@@ -40,7 +39,5 @@ class MainActivity : AppCompatActivity() {
         val myType = object : TypeToken<ArrayList<Post>>() {}.type
         val logs = gson.fromJson<ArrayList<Post>>(json, myType)
 
-        Log.d("chau", "$logs")
-        Log.d("uno", "${logs[2]}")
     }
 }
